@@ -1,17 +1,9 @@
-// this is an I/O test client for the biggie module
-// note that it does not test biggie_copy
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "read-str.h"
 #include "biggie.h"
 
-// biggie_read() reads in a string and creates a biggie from it
-// note: returns NULL if unsuccessful or invalid integer representation
-// effects: may allocate memory (caller must call biggie_destroy)
-//          reads input
-// time: O(n), where n is the length of the string read in
 struct biggie *biggie_read(void) {
   char *s = read_str();
   if (s == NULL) {
