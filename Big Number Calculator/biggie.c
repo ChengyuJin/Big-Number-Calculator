@@ -1,38 +1,14 @@
-///////////////////////////////////////////////////////////////////////////// 
-// INTEGRITY STATEMENT (v3)
-//
-// By signing your name and ID below you are stating that you have agreed
-// to the online academic integrity statement:
-// https://student.cs.uwaterloo.ca/~cs136/current/assignments/integrity.shtml
-/////////////////////////////////////////////////////////////////////////////
-// I received help from and/or collaborated with: 
-
-// None
-//  
-// Name: Chengyu Jin 
-// login ID: c54jin 
-/////////////////////////////////////////////////////////////////////////////
 #include <assert.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include "biggie.h"
 
-/////////////////////////////////////////////////////////////////////////////
-// DO NOT CHANGE THIS STRUCTURE
-/////////////////////////////////////////////////////////////////////////////
 struct biggie {
   bool negative;
   char *digits;
 };
-// notes: digits is a properly null-terminated dynamic string
-//        digits contains the number reversed, so 1203 => "3021"
-//        digits cannot have leading zeros, so 1203 cannot be "30210"
-//        zero is stored as "0" and cannot be negative (negative is false)
-/////////////////////////////////////////////////////////////////////////////
-// remove_0(digits) removes all the leading 0s in *digits
-// effect: may modify *digits
-// time O(n) where n is the length of digits
+
 static char *remove_0(char *digits) {
   assert(digits);
   int count = 0;
@@ -54,9 +30,7 @@ static char *remove_0(char *digits) {
   return digits;
 }
 
-// substarct(n, m, BIGGER) returns the result of n minus m
-// effects: may modify n
-// time: O(log(n)) where n is the max of(length of n and the length of m)
+
 static void substarct(struct biggie *n, const struct biggie *m, int BIGGER) {
   assert(n);
   assert(m);
